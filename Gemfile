@@ -33,6 +33,8 @@ gem 'jbuilder', '~> 2.5'
 
 gem 'jquery-rails'
 gem 'foundation-rails'
+gem 'simple_form'
+gem 'active_model_serializers', '~> 0.8.3'
 
 group :test do
   gem 'coveralls', require: false
