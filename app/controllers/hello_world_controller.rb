@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class HelloWorldController < ApplicationController
+  # Call to views/layouts/hello_world.html.erb:
   layout "hello_world"
 
   def index
