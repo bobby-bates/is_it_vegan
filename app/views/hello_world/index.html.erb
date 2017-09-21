@@ -1,0 +1,8 @@
+<h1>Hello World</h1>
+
+<!-- react_component calls HelloWorld.jsx: -->
+<!-- (@hello_world_props comes from app/controllers/hello_world_controller.rb) -->
+<%= react_component("HelloWorld", props: @hello_world_props, prerender: false) %>
+
+<!-- This calls javascript/packs/hello_react.jsx: -->
+<%= javascript_pack_tag 'hello_react' %>

@@ -35,6 +35,7 @@ gem 'jbuilder', '~> 2.5'
 
 gem 'foundation-rails'
 gem 'active_model_serializers', '~> 0.8.3'
+gem 'react_on_rails', '~> 9.0.2'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -62,3 +63,5 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+gem 'mini_racer', platforms: :ruby
