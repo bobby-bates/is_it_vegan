@@ -5,12 +5,13 @@
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag 'application', media: 'all' %>
-    <%= javascript_pack_tag 'is-it-vegan-bundle' %>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.4.3/css/foundation.min.css" />
+    <%= javascript_pack_tag 'app-bundle' %>
   </head>
 
   <body>
-    <%= react_component("App", props: @app_props, prerender: false) %>
-
     <%= yield %>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.4.3/js/foundation.min.js" />
   </body>
 </html>

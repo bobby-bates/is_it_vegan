@@ -1,19 +1,24 @@
 import React from 'react'
-import { Route, BrowserRouter as Router, Switch } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import NavBar from '../NavBar/components/NavBar'
 import HomePage from '../HomePage/components/HomePage'
 // import SearchResultsPage from '../SearchResultsPage/components/SearchResultsPage'
 // import UserPage from '../UserPage/components/UserPage'
 // import Footer from '../Footer/components/Footer'
 
-const App = (props) => {
-  debugger
+const AppRouter = (props, railsContext) => {
+  const state = {...props, ...railsContext}
+  // debugger
   return (
     <Router>
       <div>
-        <Route component={NavBar} />
+        <Route render={(state) => <NavBar {...this.state} />} />
+        />
         <Switch>
-          <Route exact path='/' component={HomePage} />
+          <Route exact path='/'
+                 component={HomePage}
+                 state={state}
+          />
           {/* <Route path='' component={SearchResultsPage} /> */}
           {/* <Route path='' component={UserPage} /> */}
         </Switch>
@@ -23,4 +28,4 @@ const App = (props) => {
   )
 }
 
-export default App
+export default AppRouter

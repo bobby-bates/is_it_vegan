@@ -1,4 +1,4 @@
-class StaticPagesController < ApplicationController
+class SearchesController < ApplicationController
   # Call to views/layouts/application.html.erb:
   layout "application"
 
