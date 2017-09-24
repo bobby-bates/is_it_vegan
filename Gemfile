@@ -44,10 +44,10 @@ group :test do
 end
 
 group :development, :test do
+  gem 'dotenv-rails'
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara'
   gem 'selenium-webdriver'
-
   gem 'pry-rails'
   gem 'rspec-rails'
   gem 'launchy'

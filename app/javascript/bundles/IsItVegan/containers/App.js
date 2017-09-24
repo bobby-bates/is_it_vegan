@@ -7,6 +7,7 @@ import HomePage from '../HomePage/components/HomePage'
 // import Footer from '../Footer/components/Footer'
 
 const App = (props) => {
+  debugger
   return (
     <Router>
       <div>
