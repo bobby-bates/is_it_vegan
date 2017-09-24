@@ -89,6 +89,9 @@ GEM
     execjs (2.7.0)
     factory_girl (4.8.0)
       activesupport (>= 3.0.0)
+    factory_girl_rails (4.8.0)
+      factory_girl (~> 4.8.0)
+      railties (>= 3.0.0)
     ffi (1.9.18)
     foundation-rails (5.4.5.0)
       railties (>= 3.1.0)
@@ -158,6 +161,11 @@ GEM
       nokogiri (>= 1.6)
     rails-html-sanitizer (1.0.3)
       loofah (~> 2.0)
+    rails_12factor (0.0.3)
+      rails_serve_static_assets
+      rails_stdout_logging
+    rails_serve_static_assets (0.0.5)
+    rails_stdout_logging (0.0.5)
     railties (5.1.4)
       actionpack (= 5.1.4)
       activesupport (= 5.1.4)
@@ -276,7 +284,7 @@ DEPENDENCIES
   coveralls
   devise
   dotenv-rails
-  factory_girl
+  factory_girl_rails
   foundation-rails
   jbuilder (~> 2.5)
   launchy
@@ -286,6 +294,7 @@ DEPENDENCIES
   pry-rails
   puma (~> 3.7)
   rails (~> 5.1.4)
+  rails_12factor
   react_on_rails (~> 9.0.2)
   rspec-rails
   sass-rails (~> 5.0)
