@@ -1,8 +1,8 @@
 source 'https://rubygems.org'
 
 git_source(:github) do |repo_name|
-  repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
-  "https://github.com/#{repo_name}.git"
+  repo_name = '#{repo_name}/#{repo_name}' unless repo_name.include?('/')
+  'https://github.com/#{repo_name}.git'
 end
 
 ruby '2.4.1'
@@ -54,19 +54,18 @@ group :development do
 end
 
 group :test do
-  gem "capybara-screenshot"
-  gem "chromedriver-helper"
+  gem 'capybara-screenshot'
+  gem 'chromedriver-helper'
   gem 'coveralls', require: false
-  gem "database_cleaner"
-  gem "generator_spec"
-  gem "rspec-retry"
-  gem "selenium-webdriver", "<3.0.0"
+  gem 'database_cleaner'
+  gem 'generator_spec'
+  gem 'rspec-retry'
+  gem 'selenium-webdriver', '<3.0.0'
 end
 
 group :development, :test do
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara'
-  gem 'selenium-webdriver'
   gem 'phantomjs', :require => 'phantomjs/poltergeist'
   gem 'poltergeist'
   gem 'pry-rails'
