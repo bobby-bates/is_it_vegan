@@ -1,15 +1,14 @@
 # This file is copied to spec/ when you run 'rails generate rspec:install'
 ENV['RAILS_ENV'] ||= 'test'
 
+require 'coveralls'
 Coveralls.wear!('rails') # must occur before any of your application code is required
 require 'spec_helper'
-
 require File.expand_path('../../config/environment', __FILE__)
 # Prevent database truncation if the environment is production
 abort('The Rails environment is running in production mode!') if Rails.env.production?
 # Add additional requires below this line. Rails is not loaded until this point!
 
-require 'coveralls'
 require 'launchy'
 require 'rspec/rails'
 require 'capybara/rspec'
@@ -65,7 +64,7 @@ RSpec.configure do |config|
   # Using errors_ok as there is a timing issue causing crashes without this setting
   # https://github.com/teampoltergeist/poltergeist/issues/830
 
-  default_driver = :selenium_chrome
+  default_driver = :poltergeist_no_animations
 
   supported_drivers = %i[ poltergeist poltergeist_errors_ok
                           poltergeist_no_animations

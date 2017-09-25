@@ -336,6 +336,7 @@ DEPENDENCIES
   puma (~> 3.7)
   rails (~> 5.1.4)
   rails_12factor
+  rainbow
   react_on_rails (~> 9.0.2)
   rspec-rails
   rspec-retry

@@ -75,6 +75,8 @@ group :development, :test do
   gem 'valid_attribute'
   gem 'shoulda'
   gem 'shoulda-matchers', require: false
+  # Color console output
+  gem "rainbow"
 end
 
 group :production do
