@@ -4,7 +4,7 @@ feature 'user signs in', %Q{
   As an unauthenticated user
   I want to sign in
   So that I can track my food product searches
-} do
+}, js: true do
 
   # ACCEPTANCE CRITERIA
   # * If I specify a valid, previously registered email and password,

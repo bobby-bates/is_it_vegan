@@ -11,6 +11,7 @@ abort('The Rails environment is running in production mode!') if Rails.env.produ
 
 require 'launchy'
 require 'rspec/rails'
+require 'rspec-retry'
 require 'capybara/rspec'
 require 'capybara/poltergeist'
 require 'capybara-screenshot/rspec'
@@ -55,6 +56,26 @@ RSpec.configure do |config|
 
   config.include FactoryGirl::Syntax::Methods
   config.include Warden::Test::Helpers
+
+  # ***rspec-retry settings***
+
+  # show retry status in spec process
+  config.verbose_retry = true
+  # show exception that triggers a retry if verbose_retry is set to true
+  config.display_try_failure_messages = true
+
+  # run retry only on features
+  config.around :each, :js do |ex|
+    ex.run_with_retry retry: 3
+  end
+
+  # callback to be run between retries
+  config.retry_callback = proc do |ex|
+    # run some additional clean up task - can be filtered by example metadata
+    if ex.metadata[:js]
+      Capybara.reset!
+    end
+  end
 
   # ***Capybara settings***
 
