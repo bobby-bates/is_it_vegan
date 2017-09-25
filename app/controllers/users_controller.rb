@@ -1,9 +1,9 @@
-class SearchesController < ApplicationController
+class UsersController < ApplicationController
   # Call to views/layouts/application.html.erb:
   layout "application"
 
   def index
-    @user = { user: current_user }
+
   end
 
   def show

@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   resources :searches
 
   # Calls views/static_pages/index.html.erb:
-  # get 'App', to: 'static_pages#index'
+  # get 'App', to: 'searches#index'
 
   # Calls views/hello_world/index.html.erb:
   # get 'hello_world', to: 'hello_world#index'

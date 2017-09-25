@@ -17,13 +17,12 @@ gem 'puma', '~> 3.7'
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
+gem 'nokogiri'
 # Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker
 gem 'webpacker'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 
-# Use CoffeeScript for .coffee assets and views
-gem 'coffee-rails', '~> 4.2'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.5'
 # Use Redis adapter to run Action Cable in production
@@ -38,23 +37,12 @@ gem 'foundation-rails'
 gem 'active_model_serializers', '~> 0.8.3'
 gem 'react_on_rails', '~> 9.0.2'
 gem 'devise'
-
-group :test do
-  gem 'coveralls', require: false
-end
-
-group :development, :test do
-  gem 'dotenv-rails'
-  # Adds support for Capybara system testing and selenium driver
-  gem 'capybara'
-  gem 'selenium-webdriver'
-  gem 'pry-rails'
-  gem 'rspec-rails'
-  gem 'launchy'
-  gem 'factory_girl_rails'
-  gem 'valid_attribute'
-  gem 'shoulda-matchers', require: false
-end
+gem 'jquery-rails'
+gem 'carrierwave', '~> 1.0'
+gem 'foreman'
+# Minimagick resizes images for smaller file sizes:
+gem 'mini_magick', '3.8.0'
+gem 'dotenv-rails'
 
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
@@ -63,6 +51,31 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+end
+
+group :test do
+  gem "capybara-screenshot"
+  gem "chromedriver-helper"
+  gem 'coveralls', require: false
+  gem "database_cleaner"
+  gem "generator_spec"
+  gem "rspec-retry"
+  gem "selenium-webdriver", "<3.0.0"
+end
+
+group :development, :test do
+  # Adds support for Capybara system testing and selenium driver
+  gem 'capybara'
+  gem 'selenium-webdriver'
+  gem 'phantomjs', :require => 'phantomjs/poltergeist'
+  gem 'poltergeist'
+  gem 'pry-rails'
+  gem 'rspec-rails'
+  gem 'launchy'
+  gem 'factory_girl_rails'
+  gem 'valid_attribute'
+  gem 'shoulda'
+  gem 'shoulda-matchers', require: false
 end
 
 group :production do

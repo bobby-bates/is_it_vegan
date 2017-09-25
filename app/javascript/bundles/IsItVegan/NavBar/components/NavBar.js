@@ -6,7 +6,7 @@ class NavBar extends Component {
     super(props)
     // debugger
     this.state = {
-      currentUser: this.props.current_user,
+      currentUser: props.user,
       search: ''
     }
     this.signIn = this.signIn.bind(this)
@@ -14,20 +14,20 @@ class NavBar extends Component {
     this.handleChange = this.handleChange.bind(this)
   }
 
-
   signIn() {
-    this.setState({currentUser: true})
+    this.setState({currentUser: this.props.user})
   }
 
   signOut() {
-    let header = ReactOnRails.authenticityHeaders({'Accept': 'application/json','Content-Type': 'application/json'})
+    let header = ReactOnRails.authenticityHeaders({'Accept': 'application/json', 'Content-Type': 'application/json'})
+    // debugger
     fetch('/users/sign_out', {
       method: 'DELETE',
       headers: header,
       credentials: 'same-origin'
     }).then(response => {
       if (response.ok) {
-        this.setState({currentUser: false})
+        this.setState({currentUser: null})
       }
     })
   }
@@ -37,20 +37,23 @@ class NavBar extends Component {
   }
 
   render() {
-
-    let userMenu = () => {
-      if (this.state.currentUser) {
-        <ul className='vertical medium-horizontal menu'>
-          <li><a href='#'><i className='fi-list'></i> <span>My Saved Searches</span></a></li>
-          <li><a href='/users/edit'><i className='fi-list'></i> <span>My Account</span></a></li>
-          <li><a href='/users/sign_out'><i className='fi-list'></i> <span>Sign Out</span></a></li>
-        </ul>
-      } else {
-        <ul className='vertical medium-horizontal menu'>
-          <li><a href='/users/sign_up'><i className='fi-list'></i> <span>Sign Up</span></a></li>
-          <li><a href='users/sign_in'><i className='fi-list'></i> <span>Sign In</span></a></li>
-        </ul>
-      }
+    // debugger
+    let userMenu
+    if (this.state.currentUser) {
+      userMenu =
+      <ul className='menu align-right'>
+        <li className='menu-text'>{this.state.currentUser.username}</li>
+        <li><a href='#'>My Saved Searches</a></li>
+        <li><a href='/users/edit'>My Account</a></li>
+        <li><a onClick={this.signOut}>Sign Out</a></li>
+      </ul>
+    } else {
+      userMenu =
+      <ul className='menu align-right'>
+        <li><a href='/users/sign_up'>Sign Up</a></li>
+        <li><a href='users/sign_in'>Sign In</a></li>
+      </ul>
+      // debugger
     }
     return(
       <div>
@@ -58,9 +61,7 @@ class NavBar extends Component {
 
         <div className='top-bar'>
           <div className='top-bar-left'>
-            <div className='menu'>
-              <div className='menu-text'>Is It Vegan?</div>
-            </div>
+            <a className='menu menu-text' href='/'>Is It Vegan?</a>
           </div>
 
           <div className='top-bar-right'>
@@ -68,7 +69,7 @@ class NavBar extends Component {
           </div>
         </div>
         <div className='top-bar'>
-          <ul className='menu'>
+          <ul className='menu align-center'>
             <li><input type='search' value={this.state.search} onChange={this.handleChange} placeholder='Search Food Products' /></li>
             <li><button type='button' className='button' >Search</button></li>
           </ul>

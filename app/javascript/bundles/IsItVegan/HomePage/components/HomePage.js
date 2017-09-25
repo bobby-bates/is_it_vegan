@@ -2,7 +2,7 @@ import React from 'react'
 
 const HomePage = (props) => {
   return(
-    <h1>Hi from HomePage!</h1>
+    <h1>Find out if that food item is vegan.</h1>
   )
 }
 
