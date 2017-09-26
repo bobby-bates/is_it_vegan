@@ -1,9 +1,14 @@
 class SearchesController < ApplicationController
   # Call to views/layouts/application.html.erb:
   layout "application"
+  include SearchesHelper
 
   def index
-    @user = { user: current_user }
+    # binding.pry
+    @props = { user: current_user,
+               messages: flash_messages
+             }
+    render :index
   end
 
   def show

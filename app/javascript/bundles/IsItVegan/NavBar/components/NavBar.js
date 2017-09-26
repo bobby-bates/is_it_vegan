@@ -43,15 +43,16 @@ class NavBar extends Component {
       userMenu =
       <ul className='menu align-right'>
         <li className='menu-text'>{this.state.currentUser.username}</li>
-        <li><a href='#'>My Saved Searches</a></li>
-        <li><a href='/users/edit'>My Account</a></li>
-        <li><a onClick={this.signOut}>Sign Out</a></li>
+        <li><a className='button' href='#'>My Saved Searches</a></li>
+        {/* <li><button type='button' className='button' >My Saved Searches</button></li> */}
+        <li><a className='button' href='/users/edit'>My Account</a></li>
+        <li><a className='button' onClick={this.signOut}>Sign Out</a></li>
       </ul>
     } else {
       userMenu =
       <ul className='menu align-right'>
-        <li><a href='/users/sign_up'>Sign Up</a></li>
-        <li><a href='users/sign_in'>Sign In</a></li>
+        <li><a className='button' href='/users/sign_up'>Sign Up</a></li>
+        <li><a className='button' href='users/sign_in'>Sign In</a></li>
       </ul>
       // debugger
     }

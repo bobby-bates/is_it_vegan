@@ -17,6 +17,7 @@ gem 'puma', '~> 3.7'
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
+gem 'coffee-script'
 gem 'nokogiri'
 # Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker
 gem 'webpacker'
@@ -43,6 +44,7 @@ gem 'foreman'
 # Minimagick resizes images for smaller file sizes:
 gem 'mini_magick', '3.8.0'
 gem 'dotenv-rails'
+gem 'bootstrap-sass', '~> 3.3.7'
 
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
@@ -59,15 +61,15 @@ group :test do
   gem 'coveralls', require: false
   gem 'database_cleaner'
   gem 'generator_spec'
-  gem 'rspec-retry'
+  # gem 'rspec-retry'
   gem 'selenium-webdriver', '<3.0.0'
 end
 
 group :development, :test do
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara'
-  gem 'phantomjs', :require => 'phantomjs/poltergeist'
   gem 'poltergeist'
+  gem 'phantomjs', :require => 'phantomjs/poltergeist'
   gem 'pry-rails'
   gem 'rspec-rails'
   gem 'launchy'
@@ -76,7 +78,7 @@ group :development, :test do
   gem 'shoulda'
   gem 'shoulda-matchers', require: false
   # Color console output
-  gem "rainbow"
+  # gem "rainbow"
 end
 
 group :production do

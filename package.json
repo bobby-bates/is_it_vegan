@@ -8,7 +8,7 @@
   "description": "Is It Vegan? provides users a solution to their burning question of whether or not that food product they're interested in is vegan.",
   "private": true,
   "scripts": {
-    "start": "./bin/webpack-dev-server"
+    "start": "bin/webpack-dev-server"
   },
   "author": {
     "name": "Bobby Bates",
@@ -20,11 +20,13 @@
     "@rails/webpacker": "^3.0.1",
     "babel-polyfill": "^6.23.0",
     "babel-preset-react": "^6.5.0",
+    "immutability-helper": "^2.4.0",
     "prop-types": "^15.5.10",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
     "react-on-rails": "^9.0.3",
     "react-router-dom": "^4.2.2",
+    "react-transition-group": "1.x",
     "webpack": "^3.6.0",
     "webpacker-react": "^0.3.0"
   },

@@ -1,6 +1,8 @@
 import React from 'react'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
+
 import NavBar from '../NavBar/components/NavBar'
+import FlashMessages from '../Alerts/components/FlashMessages'
 import HomePage from '../HomePage/components/HomePage'
 // import SearchResultsPage from '../SearchResultsPage/components/SearchResultsPage'
 // import UserPage from '../UserPage/components/UserPage'
@@ -8,12 +10,17 @@ import HomePage from '../HomePage/components/HomePage'
 
 const AppRouter = (props, railsContext) => {
   const user = props.user
-  // debugger
+  const messages = props.messages
   return (
     <Router>
       <div>
         <Route render={props => <NavBar {...props}
           user={user}
+          railsContext={railsContext}
+          />}
+        />
+        <Route render={props => <FlashMessages {...props}
+          messages={messages}
           railsContext={railsContext}
           />}
         />
