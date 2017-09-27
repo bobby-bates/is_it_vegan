@@ -1,9 +1,11 @@
 import React from 'react'
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
+import { BrowserRouter as Router, Route } from 'react-router-dom'
 
 import NavBar from '../NavBar/components/NavBar'
+import SearchBox from '../NavBar/components/SearchBox'
 import FlashMessages from '../Alerts/components/FlashMessages'
 import HomePage from '../HomePage/components/HomePage'
+import SearchResults from '../HomePage/components/SearchResults'
 // import SearchResultsPage from '../SearchResultsPage/components/SearchResultsPage'
 // import UserPage from '../UserPage/components/UserPage'
 // import Footer from '../Footer/components/Footer'
@@ -19,19 +21,26 @@ const AppRouter = (props, railsContext) => {
           railsContext={railsContext}
           />}
         />
+        <Route render={props => <SearchBox {...props}
+          user={user}
+          railsContext={railsContext}
+          />}
+        />
         <Route render={props => <FlashMessages {...props}
           messages={messages}
           railsContext={railsContext}
           />}
         />
-        <Switch>
-          <Route exact path='/'
-                 component={HomePage}
-                 props={props}
-          />
-          {/* <Route path='' component={SearchResultsPage} /> */}
-          {/* <Route path='' component={UserPage} /> */}
-        </Switch>
+        <Route exact path='/' render={props => <HomePage {...props}
+          railsContext={railsContext}
+          />}
+        />
+        <Route exact path='/' render={props => <SearchResults {...props}
+          railsContext={railsContext}
+          />}
+        />
+        {/* <Route path='' component={SearchResultsPage} /> */}
+        {/* <Route path='' component={UserPage} /> */}
         {/* <Route component={Footer} /> */}
       </div>
     </Router>
