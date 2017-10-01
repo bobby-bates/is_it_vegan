@@ -9,6 +9,7 @@ require File.expand_path('../../config/environment', __FILE__)
 abort('The Rails environment is running in production mode!') if Rails.env.production?
 # Add additional requires below this line. Rails is not loaded until this point!
 
+require 'dotenv/tasks'
 require 'phantomjs'
 require 'launchy'
 require 'rspec/rails'
@@ -42,6 +43,10 @@ ActiveRecord::Migration.maintain_test_schema!
 Dir[Rails.root.join("spec/support/**/*.rb")].each { |f| require f }
 
 RSpec.configure do |config|
+
+  task mytask: :dotenv do
+    # things that require .env
+  end
 
   # Ensure that if we are running js tests, we are using latest webpack assets
   # This will use the defaults of :js and :server_rendering meta tags

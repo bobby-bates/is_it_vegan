@@ -11,6 +11,7 @@ import SearchResults from '../HomePage/components/SearchResults'
 // import Footer from '../Footer/components/Footer'
 
 const AppRouter = (props, railsContext) => {
+  // debugger
   const user = props.user
   const messages = props.messages
   return (
@@ -35,10 +36,10 @@ const AppRouter = (props, railsContext) => {
           railsContext={railsContext}
           />}
         />
-        <Route exact path='/' render={props => <SearchResults {...props}
+        {/* <Route exact path='/' render={props => <SearchResults {...props}
           railsContext={railsContext}
           />}
-        />
+        /> */}
         {/* <Route path='' component={SearchResultsPage} /> */}
         {/* <Route path='' component={UserPage} /> */}
         {/* <Route component={Footer} /> */}

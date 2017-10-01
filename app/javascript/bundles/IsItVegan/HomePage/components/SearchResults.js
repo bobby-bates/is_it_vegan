@@ -1,15 +1,9 @@
 import React from 'react'
 
 const SearchResults = (props) => {
-  let results
-  if (props.results === '' || props.results === undefined) {
-    results = ''
-  } else {
-    results =
-      <h1>Search Results:</h1>
-  }
+
   return(
-    <div>{results}</div>
+    <li>{`${props.suggestion.name} Aisle: ${props.suggestion.aisle}`}</li>
   )
 }
 
