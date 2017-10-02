@@ -4,7 +4,11 @@ Rails.application.routes.draw do
   # Regular Rails way to set homepage:
   root 'searches#index'
 
-  resources :searches
+  namespace :api do
+    namespace :v1 do
+      resources :searches
+    end
+  end
 
   # Calls views/static_pages/index.html.erb:
   # get 'App', to: 'searches#index'

@@ -27,19 +27,16 @@ class SearchBox extends Component {
 
   // Teach Autosuggest how to calculate suggestions for any given input value.
   getSuggestions(value) {
-    // debugger
     let inputValue = value.trim().toLowerCase()
-    let inputLength = inputValue.length
-    let key = process.env.X_MASHAPE_KEY
+    let inputEncodedValue = encodeURIComponent(inputValue)
+    // let inputLength = inputValue.length
+    debugger
+    let id = process.env.EDAMAM_APP_ID
+    let key = process.env.EDAMAM_APP_KEY
     let results = []
 
-    // debugger
-    let headers = new Headers({ 'X-Mashape-Key': key,
-                                'Accept': 'application/json' })
-                                // debugger
-    fetch('https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/food/ingredients/autocomplete?metaInformation=true&number=7&query=' + inputValue, {
-      credentials: 'same-origin',
-      headers: headers
+    fetch(`https://api.edamam.com/api/food-database/parser?ingr=${inputEncodedValue}&app_id=${this.EDAMAM_APP_ID}&app_key=${this.EDAMAM_APP_KEY}&page=0`, {
+      mode: 'no-cors'
     })
     .then(response => {
       if (response.ok) {
@@ -52,6 +49,7 @@ class SearchBox extends Component {
     })
     .then(response => response.json())
     .then(responseBody => {
+      debugger
       this.setState({
         suggestions: responseBody
       })
@@ -102,8 +100,8 @@ class SearchBox extends Component {
   }
 
   // **NOTE When user clicks or hits enter on selection:
-  onSuggestionSelected(event, { suggestion, suggestionValue, suggestionIndex, sectionIndex, method }) {
-    debugger
+  onSuggestionSelected(event, { suggestion, suggestionValue, suggestionIndex, method }) {
+    // debugger
     event.preventDefault()
     this.setState({
       selectedSuggestion: suggestion,
@@ -113,6 +111,7 @@ class SearchBox extends Component {
   }
 
   render() {
+    // debugger
     // const { value, suggestions } = this.state
     let value = this.state.value
     let suggestions = this.state.suggestions

@@ -48,6 +48,7 @@ gem 'mini_magick', '3.8.0'
 # gem 'bootstrap', '~> 4.0.0.beta'
 gem 'bootstrap-sass', '~> 3.3.7'
 gem 'bootstrap_form'
+gem 'httparty'
 
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
