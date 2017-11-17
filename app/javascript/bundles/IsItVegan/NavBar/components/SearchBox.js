@@ -30,16 +30,23 @@ class SearchBox extends Component {
     let inputValue = value.trim().toLowerCase()
     let inputEncodedValue = encodeURIComponent(inputValue)
     // let inputLength = inputValue.length
-    debugger
     let id = process.env.EDAMAM_APP_ID
     let key = process.env.EDAMAM_APP_KEY
+    // debugger
     let results = []
 
-    fetch(`https://api.edamam.com/api/food-database/parser?ingr=${inputEncodedValue}&app_id=${this.EDAMAM_APP_ID}&app_key=${this.EDAMAM_APP_KEY}&page=0`, {
-      mode: 'no-cors'
+    let headers = new Headers({
+      'Accept': 'application/json'
+    })
+
+    fetch(`https://api.edamam.com/api/food-database/parser?ingr=${inputEncodedValue}&app_id=${id}&app_key=${key}&page=0`, {
+      credentials: 'same-origin',
+      mode: 'no-cors',
+      headers: headers
     })
     .then(response => {
       if (response.ok) {
+        // debugger
         return response
       } else {
         let errorMessage = `${response.status} (${response.statusText})`,
@@ -76,9 +83,9 @@ class SearchBox extends Component {
   }
 
   onChange(event, { newValue, method }) {
-    console.log(`onChange state.value ${this.state.value}`)
-    console.log(`onChange method ${method}`)
-    console.log(`onChange newValue ${newValue}`)
+    console.log(`onChange state.value: ${this.state.value}`)
+    console.log(`onChange method: ${method}`)
+    console.log(`onChange newValue: ${newValue}`)
     this.setState({
       value: newValue
     })

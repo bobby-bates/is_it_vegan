@@ -8,6 +8,9 @@ class SearchesController < ApplicationController
     @props = { user: current_user,
                messages: flash_messages
              }
+
+    session[:current_user] = current_user
+
     render :index
   end
 end
