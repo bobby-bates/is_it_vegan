@@ -6,12 +6,10 @@ class NavBar extends Component {
     super(props)
     // debugger
     this.state = {
-      currentUser: props.user,
-      search: ''
+      currentUser: props.user
     }
     this.signIn = this.signIn.bind(this)
     this.signOut = this.signOut.bind(this)
-    this.handleChange = this.handleChange.bind(this)
   }
 
   signIn() {
@@ -30,10 +28,6 @@ class NavBar extends Component {
         this.setState({currentUser: null})
       }
     })
-  }
-
-  handleChange(e){
-    this.setState({search: e.target.value})
   }
 
   render() {
@@ -68,12 +62,6 @@ class NavBar extends Component {
           <div className='top-bar-right'>
             {userMenu}
           </div>
-        </div>
-        <div className='top-bar'>
-          <ul className='menu align-center'>
-            <li><input type='search' value={this.state.search} onChange={this.handleChange} placeholder='Search Food Products' /></li>
-            <li><button type='button' className='button' >Search</button></li>
-          </ul>
         </div>
       </div>
     )

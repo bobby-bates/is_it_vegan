@@ -7,6 +7,8 @@ end
 
 ruby '2.4.1'
 
+gem 'dotenv-rails', groups: [:development, :test]
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.4'
 # Use postgresql as the database for Active Record
@@ -43,10 +45,10 @@ gem 'carrierwave', '~> 1.0'
 gem 'foreman'
 # Minimagick resizes images for smaller file sizes:
 gem 'mini_magick', '3.8.0'
-gem 'dotenv-rails'
 # gem 'bootstrap', '~> 4.0.0.beta'
 gem 'bootstrap-sass', '~> 3.3.7'
 gem 'bootstrap_form'
+gem 'httparty'
 
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.

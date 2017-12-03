@@ -15,14 +15,24 @@
     "email": "robertfbatesjr@gmail.com",
     "url": "https://github.com/goodcleanfun"
   },
+  "dllPlugin": {
+    "exclude": [
+      "dotenv-webpack",
+      "dotenv"
+    ]
+  },
   "license": "MIT",
   "dependencies": {
     "@rails/webpacker": "^3.0.1",
     "babel-polyfill": "^6.23.0",
     "babel-preset-react": "^6.5.0",
+    "dotenv": "^4.0.0",
     "immutability-helper": "^2.4.0",
+    "material-ui": "^0.19.2",
+    "material-ui-icons": "^1.0.0-beta.10",
     "prop-types": "^15.5.10",
     "react": "^15.6.2",
+    "react-autosuggest": "^9.3.2",
     "react-bootstrap": "^0.31.3",
     "react-dom": "^15.6.2",
     "react-on-rails": "^9.0.3",
@@ -32,6 +42,7 @@
     "webpacker-react": "^0.3.0"
   },
   "devDependencies": {
+    "dotenv-webpack": "^1.5.4",
     "enzyme": "^2.9.1",
     "isparta-loader": "2.0.0",
     "jasmine-ajax": "3.2.0",
